@@ -18,31 +18,40 @@
             <div class="col-4 align-self-center">
                 <h1>Exchange Rates</h1>
                 <h4 class="base-currency">base Currency</h4>
-                <div class="dropdown">
+                <div class="dropdown multiple-base-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="getBaseCur('USD')">USD - United States Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CAD')">CAD - Canadian Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CHF')">CHF - Swiss Franc</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CNY')">CNY - Chinese Yuan</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('DKK')">DKK - Danish Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('EUR')">EUR - Euro</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('GBP')">GBP - British Pound Sterling</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('HKD')">HKD - Hong Kong Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('HRK')">HRK - Croatian Kuna</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ILS')">ILS - Israeli New Sheqel</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('INR')">INR - Indian Rupee</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ISK')">ISK - Icelandic Króna</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('JPY')">JPY - Japanese Yen</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('NOK')">NOK - Norwegian Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('NZD')">NZD - New Zealand Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('PHP')">PHP - Philippine Peso</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ZAR')">ZAR - South African Rand</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('USD')">USD - United States Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('CAD')">CAD - Canadian Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('CHF')">CHF - Swiss Franc</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('CNY')">CNY - Chinese Yuan</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('DKK')">DKK - Danish Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('EUR')">EUR - Euro</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('GBP')">GBP - British Pound Sterling</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('HKD')">HKD - Hong Kong Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('HRK')">HRK - Croatian Kuna</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('ILS')">ILS - Israeli New Sheqel</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('INR')">INR - Indian Rupee</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('ISK')">ISK - Icelandic Króna</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('JPY')">JPY - Japanese Yen</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('NOK')">NOK - Norwegian Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('NZD')">NZD - New Zealand Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('PHP')">PHP - Philippine Peso</a></li>
+                        <li><a class="dropdown-item" onclick="getMultipleBaseCur('ZAR')">ZAR - South African Rand</a></li>
                     </ul>
                   </div>
-                <h1 class="result"></h1>
+
+                <button class="btn-mgcr">GET Conversion Rates</button>  
+                
+                <div class="row justify-content-center ">
+                  <div class="col-12 overflow-y-scroll scroller-col scroller-hide">
+                    <ul class="li-goes-here">
+                    </ul>
+                  </div>
+                </div>
+                
             </div>
             <!-- Single Conversion -->
             <div class="col-4 align-self-center">

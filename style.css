@@ -9,3 +9,11 @@
     border: 1px solid red;
     height: 100%;
 }
+.scroller-hide::-webkit-scrollbar {
+    display: none;
+}
+.scroller-col {
+    max-height: 40vh;   
+}
+
+/* list-style-type: none */
