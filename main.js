@@ -1,6 +1,7 @@
 const liveTest = 'https://exchange-rates.abstractapi.com/v1/live/?api_key=7413a37a6a6042a287d36afa892fb44f&base=USD&target=EUR';
 const liveTestMultiple = 'https://exchange-rates.abstractapi.com/v1/live/?api_key=7413a37a6a6042a287d36afa892fb44f&base=USD&date=2023-04-24';
 const liveTestAmount = 'https://exchange-rates.abstractapi.com/v1/convert?api_key=7413a37a6a6042a287d36afa892fb44f&base=USD&target=SGD&date=2020-01-01&base_amount=500'
+const liveTestTime = 'https://timezone.abstractapi.com/v1/current_time?api_key=c3c3ad991548485bbc26bb0a17c01f29&location=Oxford,United Kingdom'
 
 let baseCurrency = 0;
 let baseCurrencyAmount = 0;
@@ -44,7 +45,7 @@ let exchangeRate = {
     displayRate: function(data) {
         const { base } = data;
         const { exchange_rates } = data;
-        document.querySelector('.result').innerText = '1 ' + base + ' = ' + Object.keys(exchange_rates)[0] + ': ' + Object.values(exchange_rates)[0];
+        document.querySelector('.result').innerText = '1 ' + base + ' = ' + Object.keys(exchange_rates)[0] + ' ' + Object.values(exchange_rates)[0];
     },
     displayMultipleRates: function(data) {
         const { base } = data;
@@ -62,6 +63,24 @@ let exchangeRate = {
     }
     
 }
+let timeZoneThingey = {
+    apiKey: 'c3c3ad991548485bbc26bb0a17c01f29',
+    fetchTimeAndZone: function(location) {
+        fetch('https://timezone.abstractapi.com/v1/current_time?api_key=' +
+        this.apiKey +
+        '&location=' +
+        location)
+        .then((response) => response.json())
+        .then((data) => this.displayTimeAndZone(data));
+    },
+    displayTimeAndZone: function(data) {
+        const { requested_location } = data;
+        const { datetime } = data;
+        const { gmt_offset } = data;
+        document.querySelector('.result-time').innerText = `Current time in ${requested_location} is ${datetime}, GMT${gmt_offset}`
+    }
+}
+
 
 const getBaseCur = (baseCur) => {
     baseCurrency = baseCur;
@@ -97,6 +116,7 @@ document.querySelector(".btn-gcr").addEventListener("click", function() {
 
 document.querySelector(".btn-mgcr").addEventListener("click", function() {
     exchangeRate.fetchMultipleRates(MultipleBaseCurrency);
+    document.querySelector('.multiple-base-currency').classList.remove("invisible");
 });
 
 document.querySelector(".btn-gca").addEventListener("click", function() {
@@ -105,5 +125,15 @@ document.querySelector(".btn-gca").addEventListener("click", function() {
     document.querySelector('.base-currency-amount').classList.remove("invisible");
     document.querySelector('.target-currency-amount').classList.remove("invisible");
     exchangeRate.fetchAmountExchangeRate(baseCurrencyAmount, targetCurrencyAmount, getAmount);
+});
+
+document.querySelector(".btn-gt").addEventListener("click", function() {
+    let getCity = document.querySelector('#CityToView').value;
+    timeZoneThingey.fetchTimeAndZone(getCity);
+});
+document.querySelector(".btn-gtc").addEventListener("click", function() {
+    console.log(document.querySelector('#BaseCityLocation').value)
+    console.log(document.querySelector('#BaseCityTime').value)
+    console.log(document.querySelector('#TargetCityLocation').value)
 });
 
