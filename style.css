@@ -13,7 +13,8 @@
     display: none;
 }
 .scroller-col {
-    max-height: 40vh;   
+    max-height: 50vh;   
 }
-
-/* list-style-type: none */
+li {
+    list-style-type: none;
+}

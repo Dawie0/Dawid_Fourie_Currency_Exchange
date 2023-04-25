@@ -17,7 +17,7 @@
             <!-- Multiple Conversions -->
             <div class="col-4 align-self-center">
                 <h1>Exchange Rates</h1>
-                <h4 class="base-currency">base Currency</h4>
+                <h4>base Currency</h4>
                 <div class="dropdown multiple-base-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
@@ -43,9 +43,9 @@
                     </ul>
                   </div>
 
-                <button class="btn-mgcr">GET Conversion Rates</button>  
+                <button class="btn-mgcr m-2">GET Conversion Rates</button>  
                 
-                <div class="row justify-content-center ">
+                <div class="row justify-content-center m-2">
                   <div class="col-12 overflow-y-scroll scroller-col scroller-hide">
                     <ul class="li-goes-here">
                     </ul>
@@ -56,8 +56,8 @@
             <!-- Single Conversion -->
             <div class="col-4 align-self-center">
                 <h1>Exchange Rate and Currency Converter</h1>
-                <h4 class="base-currency">base Currency</h4>
-                <div class="dropdown base-currency1">
+                <h4>base Currency</h4>
+                <div class="dropdown base-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
                     </button>
@@ -81,8 +81,8 @@
                         <li><a class="dropdown-item" onclick="getBaseCur('ZAR')">ZAR - South African Rand</a></li>
                     </ul>
                   </div>
-                <h4 class="target-currency">target Currency</h4>
-                <div class="dropdown target-currency1">
+                <h4>target Currency</h4>
+                <div class="dropdown target-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
                     </button>
@@ -106,64 +106,70 @@
                         <li><a class="dropdown-item" onclick="getTargetCur('ZAR')">ZAR - South African Rand</a></li>
                     </ul>
                   </div>
-                <button class="btn-gcr">GET Conversion Rate</button>
-                <h1 class="result"></h1>
+                <button class="btn-gcr m-2">GET Conversion Rate</button>
+                <h3 class="result"></h3>
             </div>
             <!-- Amount Currency Converter -->
             <div class="col-4 align-self-center">
-                <h1>Exchange Rate and Currency Converter</h1>
-                <h4 class="base-currency">base Currency</h4>
-                <div class="dropdown base-currency1">
+                <h1>Amount Exchange Rate</h1>
+                <h4>base Currency</h4>
+                <div class="dropdown base-currency-amount">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="getBaseCur('USD')">USD - United States Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CAD')">CAD - Canadian Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CHF')">CHF - Swiss Franc</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('CNY')">CNY - Chinese Yuan</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('DKK')">DKK - Danish Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('EUR')">EUR - Euro</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('GBP')">GBP - British Pound Sterling</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('HKD')">HKD - Hong Kong Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('HRK')">HRK - Croatian Kuna</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ILS')">ILS - Israeli New Sheqel</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('INR')">INR - Indian Rupee</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ISK')">ISK - Icelandic Króna</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('JPY')">JPY - Japanese Yen</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('NOK')">NOK - Norwegian Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('NZD')">NZD - New Zealand Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('PHP')">PHP - Philippine Peso</a></li>
-                        <li><a class="dropdown-item" onclick="getBaseCur('ZAR')">ZAR - South African Rand</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('USD')">USD - United States Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('CAD')">CAD - Canadian Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('CHF')">CHF - Swiss Franc</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('CNY')">CNY - Chinese Yuan</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('DKK')">DKK - Danish Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('EUR')">EUR - Euro</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('GBP')">GBP - British Pound Sterling</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('HKD')">HKD - Hong Kong Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('HRK')">HRK - Croatian Kuna</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('ILS')">ILS - Israeli New Sheqel</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('INR')">INR - Indian Rupee</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('ISK')">ISK - Icelandic Króna</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('JPY')">JPY - Japanese Yen</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('NOK')">NOK - Norwegian Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('NZD')">NZD - New Zealand Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('PHP')">PHP - Philippine Peso</a></li>
+                        <li><a class="dropdown-item" onclick="getBaseCurAmount('ZAR')">ZAR - South African Rand</a></li>
                     </ul>
                   </div>
-                <h4 class="target-currency">target Currency</h4>
-                <div class="dropdown target-currency1">
+                <h4>target Currency</h4>
+                <div class="dropdown target-currency-amount">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Base Currency
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="getTargetCur('USD')">USD - United States Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('CAD')">CAD - Canadian Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('CHF')">CHF - Swiss Franc</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('CNY')">CNY - Chinese Yuan</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('DKK')">DKK - Danish Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('EUR')">EUR - Euro</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('GBP')">GBP - British Pound Sterling</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('HKD')">HKD - Hong Kong Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('HRK')">HRK - Croatian Kuna</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('ILS')">ILS - Israeli New Sheqel</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('INR')">INR - Indian Rupee</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('ISK')">ISK - Icelandic Króna</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('JPY')">JPY - Japanese Yen</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('NOK')">NOK - Norwegian Krone</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('NZD')">NZD - New Zealand Dollar</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('PHP')">PHP - Philippine Peso</a></li>
-                        <li><a class="dropdown-item" onclick="getTargetCur('ZAR')">ZAR - South African Rand</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('USD')">USD - United States Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('CAD')">CAD - Canadian Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('CHF')">CHF - Swiss Franc</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('CNY')">CNY - Chinese Yuan</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('DKK')">DKK - Danish Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('EUR')">EUR - Euro</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('GBP')">GBP - British Pound Sterling</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('HKD')">HKD - Hong Kong Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('HRK')">HRK - Croatian Kuna</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('ILS')">ILS - Israeli New Sheqel</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('INR')">INR - Indian Rupee</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('ISK')">ISK - Icelandic Króna</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('JPY')">JPY - Japanese Yen</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('NOK')">NOK - Norwegian Krone</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('NZD')">NZD - New Zealand Dollar</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('PHP')">PHP - Philippine Peso</a></li>
+                        <li><a class="dropdown-item" onclick="getTargetCurAmount('ZAR')">ZAR - South African Rand</a></li>
                     </ul>
                   </div>
-                <button class="btn-gcr">GET Conversion Rate</button>
-                <h1 class="result"></h1>
+
+                  <div class="mb-3">
+                    <label for="AmountToBeConverted" class="form-label">Amount you want converted!</label>
+                    <input type="number" class="form-control" id="AmountToConvert" placeholder="Enter Amount">
+                  </div>
+
+                <button class="btn-gca m-2">GET Conversion Amount</button>
+                <h3 class="result-amount">result goes here</h3>
             </div>
         </div>
     </div>
