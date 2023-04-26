@@ -10,13 +10,11 @@
     <title>Currency Exchange</title>
 </head>
 <body>
-    
-    
       <div class="container-fluid text-center">
         <div class="row justify-content-center">
             <!-- Multiple Conversions -->
             <div class="col-4 align-self-center">
-                <h1>Exchange Rates</h1>
+                <h3>Get Exchange Rates From Single Base Currency</h3>
                 <h4>base Currency</h4>
                 <div class="dropdown multiple-base-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,7 +53,7 @@
             </div>
             <!-- Single Conversion -->
             <div class="col-4 align-self-center">
-                <h1>Exchange Rate and Currency Converter</h1>
+                <h3>Get Target Currency Conversion from Base Currency</h3>
                 <h4>base Currency</h4>
                 <div class="dropdown base-currency">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -107,11 +105,11 @@
                     </ul>
                   </div>
                 <button class="btn-gcr m-2">GET Conversion Rate</button>
-                <h3 class="result"></h3>
+                <h4 class="result"></h4>
             </div>
             <!-- Amount Currency Converter -->
             <div class="col-4 align-self-center">
-                <h1>Amount Exchange Rate</h1>
+                <h3>Convert an Amount from Base Currency to Target Currency</h3>
                 <h4>base Currency</h4>
                 <div class="dropdown base-currency-amount">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -169,36 +167,37 @@
                   </div>
 
                 <button class="btn-gca m-2">GET Conversion Amount</button>
-                <h3 class="result-amount"></h3>
+                <h4 class="result-amount"></h4>
             </div>
         </div>
         <!-- Time and timezone lookup -->
-        <div class="row justify-content-center">
-          <div class="col-4 align-self-center">
+        <div class="row justify-content-evenly">
+          <div class="col-5 align-self-center">
             <h3>Get Time and Zone</h3>
-            <div class="mb-3">
+            <div class="mb-1">
               <label for="CityToView" class="form-label">City</label>
               <input type="text" class="form-control" id="CityToView" placeholder="Enter City">
             </div>
-            <button class="btn-gt m-2">GET Time</button>
-            <h3 class="result-time">Result Should go here</h3>
+            <button class="btn-gt m-1">GET Time</button>
+            <h4 class="result-time">Result Should go here</h4>
           </div>
           <!-- Time Conversion -->
-          <div class="col-4 align-self-center">
-            <h3>Get Time Conversion</h3>
-            <div class="mb-3">
+          <div class="col-5 align-self-center">
+            <h3>Get Time Conversion from Base Location and Time</h3>
+            <div class="mb-1">
               <label for="BaseCity" class="form-label">Base Location</label>
               <input type="text" class="form-control" id="BaseCityLocation" placeholder="Enter City">
             </div>
-            <div class="mb-3">
+            <div class="mb-1">
               <label for="BaseCity" class="form-label">Current or desired time</label>
               <input type="text" class="form-control" id="BaseCityTime" placeholder="Enter Time ex. 07:00:00">
             </div>
-            <div class="mb-3">
+            <div class="mb-1">
               <label for="TargetCity" class="form-label">Target Location</label>
               <input type="text" class="form-control" id="TargetCityLocation" placeholder="Enter City">
             </div>
-            <button class="btn-gtc m-2">GET Time Conversion</button>
+            <button class="btn-gtc m-1">GET Time Conversion</button>
+            <h4 class="result-timeConversion">Result Should go here</h4>
           </div>
         </div>
       </div>

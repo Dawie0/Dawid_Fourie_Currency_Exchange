@@ -2,6 +2,7 @@ const liveTest = 'https://exchange-rates.abstractapi.com/v1/live/?api_key=7413a3
 const liveTestMultiple = 'https://exchange-rates.abstractapi.com/v1/live/?api_key=7413a37a6a6042a287d36afa892fb44f&base=USD&date=2023-04-24';
 const liveTestAmount = 'https://exchange-rates.abstractapi.com/v1/convert?api_key=7413a37a6a6042a287d36afa892fb44f&base=USD&target=SGD&date=2020-01-01&base_amount=500'
 const liveTestTime = 'https://timezone.abstractapi.com/v1/current_time?api_key=c3c3ad991548485bbc26bb0a17c01f29&location=Oxford,United Kingdom'
+const liveTestTimeConv = 'https://timezone.abstractapi.com/v1/convert_time?api_key=c3c3ad991548485bbc26bb0a17c01f29&base_location=Los Angeles&base_datetime=2020-05-01 07:00:00&target_location=Oxford'
 
 let baseCurrency = 0;
 let baseCurrencyAmount = 0;
@@ -21,7 +22,6 @@ let exchangeRate = {
         '&target=' + target)
         .then((response) => response.json())
         .then((data) => this.displayRate(data));
-        console.log("yes");
     },
     fetchMultipleRates: function(base) {
         fetch('https://exchange-rates.abstractapi.com/v1/live/?api_key=' + 
@@ -73,11 +73,28 @@ let timeZoneThingey = {
         .then((response) => response.json())
         .then((data) => this.displayTimeAndZone(data));
     },
+    fetchTimeAndZoneConversion: function(baseLocation, baseTime, targetLocation) {
+        fetch('https://timezone.abstractapi.com/v1/convert_time?api_key=' +
+        this.apiKey + 
+        '&base_location=' + baseLocation +
+        '&base_datetime=' + String(todayDate)+ ' ' + baseTime +
+        '&target_location=' + targetLocation)
+        .then((response) => response.json())
+        .then((data) => this.displayTimeAndZoneConversion(data))
+    },
     displayTimeAndZone: function(data) {
         const { requested_location } = data;
         const { datetime } = data;
         const { gmt_offset } = data;
         document.querySelector('.result-time').innerText = `Current time in ${requested_location} is ${datetime}, GMT${gmt_offset}`
+    },
+    displayTimeAndZoneConversion: function(data) {
+        const { base_location } = data;
+        const { target_location } = data;
+        const time = target_location.datetime.split(' ');
+        document.querySelector('.result-timeConversion').innerText = `Base location: ${base_location.requested_location}, 
+        Target Location: ${target_location.requested_location}, 
+        Target Time: ${time[1]}`;
     }
 }
 
@@ -105,18 +122,18 @@ const getTargetCurAmount = (targetCur) => {
 const addListItem = (item) => {
     const li = document.createElement('li');
     li.appendChild(document.createTextNode(item));
-    multipleRatesUl.appendChild(li)
+    multipleRatesUl.appendChild(li);
 }
 
 document.querySelector(".btn-gcr").addEventListener("click", function() {
-    exchangeRate.fetchExchangeRate(baseCurrency, targetCurrency);
     document.querySelector('.base-currency').classList.remove("invisible");
     document.querySelector('.target-currency').classList.remove("invisible");
+    exchangeRate.fetchExchangeRate(baseCurrency, targetCurrency);
 });
 
 document.querySelector(".btn-mgcr").addEventListener("click", function() {
-    exchangeRate.fetchMultipleRates(MultipleBaseCurrency);
     document.querySelector('.multiple-base-currency').classList.remove("invisible");
+    exchangeRate.fetchMultipleRates(MultipleBaseCurrency);
 });
 
 document.querySelector(".btn-gca").addEventListener("click", function() {
@@ -132,8 +149,9 @@ document.querySelector(".btn-gt").addEventListener("click", function() {
     timeZoneThingey.fetchTimeAndZone(getCity);
 });
 document.querySelector(".btn-gtc").addEventListener("click", function() {
-    console.log(document.querySelector('#BaseCityLocation').value)
-    console.log(document.querySelector('#BaseCityTime').value)
-    console.log(document.querySelector('#TargetCityLocation').value)
+    let baseLocation = document.querySelector('#BaseCityLocation').value;
+    let baseTime = document.querySelector('#BaseCityTime').value;
+    let targetLocation = document.querySelector('#TargetCityLocation').value;
+    timeZoneThingey.fetchTimeAndZoneConversion(baseLocation, baseTime, targetLocation);
 });
 

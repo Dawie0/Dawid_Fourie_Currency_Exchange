@@ -1,18 +1,12 @@
 .container-fluid {
-    border: 1px solid blue;
-    height: 95vh
+    height: 100vh
 }
 .row {
     height: 50%;
-    border: 1px solid green;
 }
 
 .col-4 {
-    border: 1px solid red;
     height: 100%;
-}
-.col-6 {
-    border: 1px solid red;
 }
 .scroller-hide::-webkit-scrollbar {
     display: none;
